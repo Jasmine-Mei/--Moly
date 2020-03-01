@@ -1,0 +1,53 @@
+<view class="container">
+  <!-- 顶部搜索部分 -->
+  <Search />
+
+  <!-- 轮播图部分 -->
+  <!-- indicator-dots 是面板指示点 -->
+  <!-- indicator-color 指示点颜色 -->
+  <!-- indicator-active-color 指示点高亮颜色 -->
+  <!-- circular 是否采用衔接滑动 默认是false -->
+  <swiper class="swiper" circular indicator-dots indicator-color="rgba(255,255,255,.3)" indicator-active-color="#fff">
+    <!-- block是没有语义的，是不会再dom节点中生成的，一般用于for循环 -->
+    <block wx:for="{{banners}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- 中间导航部分 -->
+  <view class="nav">
+    <block wx:for="{{navs}}" wx:key="index">
+      <navigator url="{{item.url}}" open-type="{{item.open_type}}">
+        <image src="{{item.image_src}}" mode="aspectFill"></image>
+      </navigator>
+    </block>
+  </view>
+
+  <!-- 楼层布局 -->
+  <view class="floor" wx:for="{{floors}}" wx:key="index">
+    <!-- 头部图片 -->
+    <image src="{{item.floor_title.image_src}}" mode="aspectFill"></image>
+    <!-- 楼层内容 -->
+    <view class="floor-content">
+      <!-- 左边大图 -->
+      <view class="floor-content-left">
+        <image src="{{item.product_list[0].image_src}}"></image>
+      </view>
+
+      <!-- 右边四小图 -->
+      <view class="floor-content-right">
+        <block wx:for="{{item.product_list}}" wx:key="index" wx:if="{{index > 0}}">
+          <image src="{{item.image_src}}" mode="aspectFill"></image>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 回顶部 -->
+  <view class="toTop" bindtap="handleToTop" wx:if="{{isShowTop}}">
+    <view class="arrow"></view>
+    <text>顶部</text>
+  </view>
+</view>

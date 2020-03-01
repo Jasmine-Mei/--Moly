@@ -1,0 +1,38 @@
+<view class="container">
+
+  <!-- 顶部搜索框 -->
+  <Search/>
+
+  <view class="content">
+    <!-- 左边分类导航栏 -->
+    <van-sidebar class="navLeft" active-key="{{ activeKey }}" bind:change="onChange">
+      <block wx:for="{{categoryList}}" wx:key="index">
+        <van-sidebar-item title="{{item.cat_name}}" class="menu-item" />
+      </block>
+    </van-sidebar>
+
+    <!-- 右边分类商品 -->
+    <view class="right">
+      <!-- 子分类 -->
+      <block wx:for="{{ categoryList[currentIndex].children }}" wx:key="index">
+        <view class="category-list">
+          <view class="category-title">
+            /
+            <text>{{item.cat_name}}</text> /
+          </view>
+
+          <view class="product-list">
+            <!-- 品牌分类列表 -->
+            <block wx:for="{{ item.children }}" wx:key="index" wx:for-item="subItem" wx:for-index="subIndex">
+              <navigator url="">
+                <image mode="widthFix" src="{{ subItem.cat_icon }}"></image>
+                <view>{{ subItem.cat_name }}</view>
+              </navigator>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,8 @@
+<!-- 顶部搜索部分 -->
+<navigator url="">
+  <view class="search">
+    <view class="search-input">
+      <icon type="search" size="20" color="#d4d4d4" />搜索
+    </view>
+  </view>
+</navigator>

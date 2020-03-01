@@ -1,0 +1,86 @@
+/* 轮播图的样式 */
+
+.swiper {
+  height: 340rpx;
+}
+
+.swiper image {
+  width: 750rpx;
+  height: 340rpx;
+}
+
+/* 中 间导航栏部分 */
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.nav navigator image {
+  width: 128rpx;
+  height: 140rpx;
+}
+
+/* 楼层样式 */
+
+/* 头部图片 */
+.floor{
+  margin: 20rpx 16rpx;
+}
+.floor>image {
+  display: block;
+  height: 60rpx;
+}
+
+/* 左边大图 */
+
+.floor-content{
+  display: flex;
+}
+.floor-content-left image{
+  width: 233rpx;
+  height: 390rpx;
+}
+
+/* 左边小图 */
+.floor-content-right image{
+  margin-left: 10rpx;
+  width: 233rpx;
+  height: 190rpx;
+}
+
+.floor + .floor .floor-content-right image{
+    width: 193rpx;
+}
+
+.floor + .floor .floor-content-right image:nth-child(3n + 1){
+    width: 273rpx;
+}
+
+
+/* 回到顶部 */
+.toTop{
+    width:90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 12px;
+    position: fixed;
+    right: 20rpx;
+    bottom:50rpx;
+}
+
+.arrow{
+    width:12px;
+    height:12px;
+    border-left: 1px #333 solid;
+    border-top: 1px #333 solid;
+    transform: rotate(45deg);
+    position: relative;
+    top: 10rpx;
+}
