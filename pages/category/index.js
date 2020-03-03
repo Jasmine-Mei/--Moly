@@ -23,8 +23,6 @@ Page({
       this.setData({
         categoryList: message
       })
-      console.log(message)
-      console.log(res)
     })
   },
   onChange(event) {
